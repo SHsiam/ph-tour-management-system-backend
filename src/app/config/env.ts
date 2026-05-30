@@ -51,7 +51,7 @@ interface EnvConfig {
 
 const loadEnvVariables = (): EnvConfig => {
   const requiredEnvVariables: string[] = [
-    // "PORT",
+    "PORT",
     "DB_URL",
     "NODE_ENV",
     "BCRYPT_SALT_ROUND",
@@ -98,7 +98,7 @@ const loadEnvVariables = (): EnvConfig => {
   });
 
   return {
-    PORT: process.env.PORT || "3000",
+    PORT: process.env.PORT as string,
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     DB_URL: process.env.DB_URL!,
     NODE_ENV: process.env.NODE_ENV as "development" | "production",
